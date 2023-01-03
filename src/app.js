@@ -21,7 +21,7 @@ submit.addEventListener('click', e => {
 ideas.addEventListener('click', e => {
     e.preventDefault()
     if (e.target.id.includes('-delete')) {
-        Array.from(ideas.children).find(idea => idea.id.includes(e.target.id.split('-')[0])).remove()
+        deleteIdea(ideas, e.target)
     }
 })
 
@@ -39,6 +39,10 @@ const addIdea = (idea, element) => {
     <span>${idea.star ? '⭐️' : '☆'}</span>
     <button id="${idea.id}-delete">delete</button>`
     element.appendChild(div)
+}
+
+const deleteIdea = (ideas, eventTarget) => {
+    Array.from(ideas.children).find(idea => idea.id.includes(eventTarget.id.split('-')[0])).remove()
 }
 
 const addError = (element) => {
