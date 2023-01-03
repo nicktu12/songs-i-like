@@ -23,6 +23,10 @@ ideas.addEventListener('click', e => {
     if (e.target.id.includes('-delete')) {
         deleteIdea(ideas, e.target)
     }
+    // make star happen
+    // if (e.target.id.includes('-delete')) {
+    //     deleteIdea(ideas, e.target)
+    // }
 })
 
 // functional pieces
@@ -38,6 +42,7 @@ const addIdea = (idea, element) => {
     <p>${idea.description}</p>
     <span>${idea.star ? '⭐️' : '☆'}</span>
     <button id="${idea.id}-delete">delete</button>`
+    // maybe have to do stars in classes
     element.appendChild(div)
 }
 
