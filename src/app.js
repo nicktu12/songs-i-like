@@ -18,6 +18,13 @@ submit.addEventListener('click', e => {
     }
 })
 
+ideas.addEventListener('click', e => {
+    e.preventDefault()
+    if (e.target.id.includes('-delete')) {
+        Array.from(ideas.children).find(idea => idea.id.includes(e.target.id.split('-')[0])).remove()
+    }
+})
+
 // functional pieces
 
 const newIdea = (title, description) => {
@@ -26,9 +33,11 @@ const newIdea = (title, description) => {
 
 const addIdea = (idea, element) => {
     let div = document.createElement("div")
+    div.id = idea.id + '-container'
     div.innerHTML=`<h2>${idea.title}</h2>
     <p>${idea.description}</p>
-    <span>${idea.star ? '⭐️' : '☆'}</span>`
+    <span>${idea.star ? '⭐️' : '☆'}</span>
+    <button id="${idea.id}-delete">delete</button>`
     element.appendChild(div)
 }
 
