@@ -35,6 +35,7 @@ const newIdea = (title, description) => {
     return {title, description, id: Date.now(), star: false}
 }
 
+// NOTE: can we curry here? Maybe with a bit more text on the card?
 const addIdea = (idea, element) => {
     let div = document.createElement("div")
     div.id = idea.id + '-container'
@@ -54,6 +55,7 @@ const addError = (element) => {
     element.innerHTML="please fix error"
 }
 
+// NOTE: higher order function here
 const clearElements = (inputs, elements) => {
     inputs.forEach(input => input.value = '')
     elements.forEach(el => el.innerHTML = '')
