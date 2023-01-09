@@ -6,6 +6,8 @@ dom_ideas
 dom_submit
 dom_error
 
+// data model
+
 let data_ideas = JSON.parse(localStorage.getItem('ideas')) || []
 
 // event pieces
@@ -26,10 +28,6 @@ dom_ideas.addEventListener('click', e => {
         let id = e.target.id.split('-')[0] 
         deleteIdea(data_ideas, id)
     }
-    // make star happen
-    // if (e.target.id.includes('-delete')) {
-    //     deleteIdea(ideas, e.target)
-    // }
 })
 
 // functional pieces
@@ -41,22 +39,29 @@ const newIdea = (title, description) => {
 const addIdea = (ideas, idea) => {
     ideas.push(idea)
     sync()
-    console.log({ data_ideas })
 }
 
-// NOTE: can we curry here? Maybe with a bit more text on the card?
-const drawIdeas = (ideas, element) => {
-    element.innerHTML = ''
-    ideas.forEach(idea => {
-        let div = document.createElement("div")
+// NOTE: currying
+const hydrateDiv = (idea) => {
+    return (div) => {
         div.id = idea.id + '-container'
         div.innerHTML=`<h2>${idea.title}</h2>
         <p>${idea.description}</p>
         <span class="${idea.star ? `${idea.id}-star` : ``}"></span>
         <button id="${idea.id}-delete">delete</button>`
-        // maybe have to do stars in classes
-        element.appendChild(div)
+        return div
+    }
+    
+}
+
+// NOTE: currying
+const drawIdeas = (element) => {
+    element.innerHTML = ''
+    return (ideas) => ideas.forEach(idea => {
+        let div = document.createElement("div")
+        element.appendChild(hydrateDiv(idea)(div))
     })
+   
 }
 
 const deleteIdea = (ideas, deleted) => {
@@ -68,19 +73,22 @@ const addError = (element) => {
     element.innerHTML="please fix error"
 }
 
-// NOTE: higher order function here
+// NOTE: higher order function 
 const clearElements = (inputs, elements) => {
     inputs.forEach(input => input.value = '')
     elements.forEach(el => el.innerHTML = '')
 }
+
+// sync functions
 
 const sync = () => {
     updateDom()
     syncToLocalStorage(data_ideas)
 }
 
+// NOTE: currying
 const updateDom = () => {
-    drawIdeas(data_ideas, dom_ideas)
+    drawIdeas(dom_ideas)(data_ideas)
 }
 
 const syncToLocalStorage = () => {

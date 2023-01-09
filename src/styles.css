@@ -2,3 +2,12 @@ h1 {
   color: hotpink;
   font-family: cursive;
 }
+
+#dom_ideas {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#dom_ideas div {
+  border: 1px solid black;
+}
