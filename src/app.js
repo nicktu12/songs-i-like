@@ -13,7 +13,6 @@ let data_ideas = JSON.parse(localStorage.getItem('ideas')) || []
 dom_submit.addEventListener('click', e => {
     e.preventDefault()
     if (dom_title.value.length > 0 && dom_description.value.length > 0) {
-        // addIdea(newIdea(title.value, description.value), ideas)
         addIdea(data_ideas, newIdea(dom_title.value, dom_description.value))
         clearElements([dom_title, dom_description], [dom_error])
     } else {
@@ -61,9 +60,7 @@ const drawIdeas = (ideas, element) => {
 }
 
 const deleteIdea = (ideas, deleted) => {
-    console.log(ideas, deleted)
     data_ideas = ideas.filter(idea => idea.id !== parseInt(deleted))
-    console.log({data_ideas})
     sync()
 }
 
