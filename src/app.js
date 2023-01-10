@@ -1,5 +1,4 @@
 // dom pieces
-
 dom_title
 dom_description
 dom_ideas
@@ -7,11 +6,9 @@ dom_submit
 dom_error
 
 // data model
-
 let data_ideas = JSON.parse(localStorage.getItem('ideas')) || []
 
 // event pieces
-
 dom_submit.addEventListener('click', e => {
     e.preventDefault()
     if (dom_title.value.length > 0 && dom_description.value.length > 0) {
@@ -31,7 +28,6 @@ dom_ideas.addEventListener('click', e => {
 })
 
 // functional pieces
-
 const newIdea = (title, description) => {
     return {title, description, id: Date.now(), star: false}
 }
@@ -80,7 +76,6 @@ const clearElements = (inputs, elements) => {
 }
 
 // sync functions
-
 const sync = () => {
     updateDom()
     syncToLocalStorage(data_ideas)
