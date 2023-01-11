@@ -19,8 +19,10 @@ and then
     * Both hydrateDiv() and drawIdeas() employ basic use of currying and higher order functions. Additionally, iterator methods used throughout the project are techincally higher order functions.
   * Make use of Closures?
     * There is use of closure in many of the functions that were curried - nested functions that are returned reference variables outside of them. 
+    * I was definitely confused at times the difference between closures and curryed functions when implemented. Often times they can be present in the same functions. 
   * Make use of Curried Functions?
     * Both hydrateDiv() and drawIdeas() employ basic use of currying and higher order functions. 
+    * How does currying employ the principles of FC?
   * Make use of Composition?
     * No.
 2. How did you go about creating your data model? Where is it in your code?
