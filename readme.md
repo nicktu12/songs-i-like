@@ -16,11 +16,11 @@ and then
   * Make use of Pure Functions?
     * The application makes use of pure functions wherever possible. The need to sync the dom/local storage makes some functions not pure, as does the use of some global variables. Functions like newIdea(), hydrateDiv() and addError() showcase principles of pure functions. 
   * Make use of Higher Order Functions?
-    * Both hydrateDiv() and drawIdeas() employ basic use of currying and higher order functions. 
+    * Both hydrateDiv() and drawIdeas() employ basic use of currying and higher order functions. Additionally, iterator methods used throughout the project are techincally higher order functions.
   * Make use of Closures?
-    * 
+    * There is use of closure in many of the functions that were curried - nested functions that are returned reference variables outside of them. 
   * Make use of Curried Functions?
-      * Both hydrateDiv() and drawIdeas() employ basic use of currying and higher order functions. 
+    * Both hydrateDiv() and drawIdeas() employ basic use of currying and higher order functions. 
   * Make use of Composition?
     * No.
 2. How did you go about creating your data model? Where is it in your code?
