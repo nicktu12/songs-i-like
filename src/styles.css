@@ -17,9 +17,10 @@ input {
 #dom_ideas {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 #dom_ideas div {
   border: 1px solid black;
-  width: 275px;
+  width: 27%;
 }
