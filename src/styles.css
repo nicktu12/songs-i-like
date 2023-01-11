@@ -1,6 +1,17 @@
+body {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
 h1 {
   color: hotpink;
-  font-family: cursive;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+input {
+  margin-bottom: 25px;
 }
 
 #dom_ideas {
@@ -10,4 +21,5 @@ h1 {
 
 #dom_ideas div {
   border: 1px solid black;
+  width: 275px;
 }
