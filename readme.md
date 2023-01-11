@@ -29,3 +29,4 @@ and then
     * I initially used the DOM for keeping track of the data model, but shifted my approach to use a global variable instead. 
 3. How well were you able to separate your data model from the DOM logic? Where is that separation in the code?
     * I separated the code by comments, but considered using different files for DOM logic, data model logic and functional methods, but due to the already brief nature of the code kept it all in one file. 
+    * Is it worth thinking about MVC in terms of studenet projects?
